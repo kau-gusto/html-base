@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="portfólio" />
+    <title>Document</title>
+    <link rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <header class="margin">
+        <button id="aside-button" class="active margin">
+          <svg
+            class="active"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <line class="l1" x1="4" y1="6" x2="20" y2="6"></line>
+            <line class="l2" x1="4" y1="12" x2="20" y2="12"></line>
+            <line class="l3" x1="4" y1="18" x2="20" y2="18"></line>
+          </svg>
+        </button>
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li>
+              <a>O que fazemos?</a>
+              <ul>
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">SEO</a></li>
+                <li><a href="#">Design</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Links</a></li>
+            <li><a href="#">Contato</a></li>
+          </ul>
+        </nav>
+      </header>
+      <aside class="active">
+        <nav>
+          <ul>
+            <li>
+              <a href="#home"><i class="material-icons">home</i>home</a>
+            </li>
+
+            <li>
+              <a href="#about"> <i class="material-icons">info</i>about</a>
+            </li>
+            <li>
+              <a href="#services"
+                ><i class="material-icons">room_service</i>services
+              </a>
+            </li>
+            <li>
+              <a href="#project"><i class="material-icons">work</i>project</a>
+            </li>
+            <li>
+              <a href="#testimonies">
+                <i class="material-icons">question_answer</i>testimonies</a
+              >
+            </li>
+            <li>
+              <a href="#contact"> <i class="material-icons">sms</i>contact</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <main class="margin">
+        <article id="home" class="view">a</article>
+        <article id="about" class="view">b</article>
+        <article id="services" class="view">c</article>
+        <article id="project" class="view">d</article>
+        <article id="testimonies" class="view">e</article>
+        <article id="contact" class="view">f</article>
+      </main>
+    </div>
+    <script>
+      const button = document.querySelector("#aside-button");
+      const header = document.querySelector("header");
+      const aside = document.querySelector("aside");
+      const main = document.querySelector("main");
+
+      function handleActiveAside() {
+        aside.classList.toggle("active");
+        main.classList.toggle("margin");
+        button.classList.toggle("active");
+        header.classList.toggle("margin");
+      }
+
+      const asidechildren = document.querySelectorAll("aside > *");
+      asidechildren.forEach((a) => {
+        a.addEventListener("click", () => {
+          if (window.visualViewport.width < 650) {
+            handleActiveAside();
+          }
+        });
+      });
+
+      button.onclick = handleActiveAside;
+    </script>
+  </body>
+</html>
